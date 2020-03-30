@@ -34,7 +34,7 @@ if HAS_WEBSAUNA:
     # TODO: Factor this to a separate configurable module
     @task(base=ScheduleOnCommitTask, bind=True)
     def _send_sms_async(self, receiver, from_, text_body, log_failure):
-        """Celery task to send the SMS synchronously outside HTTP request proccesing."""
+        """Celery task to send the SMS synchronously outside HTTP request processing."""
         request = self.request.request
         _send_sms(request, receiver, from_, text_body, log_failure)
 
